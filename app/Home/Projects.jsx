@@ -27,7 +27,7 @@ function Projects() {
   ];
   return (
     <section className="w-screen flex flex-col justify-center items-center bg-[#e4dfdf] p-10 text-black">
-      <div className="w-[70%] text-center flex flex-col justify-center items-center">
+      <div className="md:w-[70%] text-center flex flex-col justify-center items-center">
         <h1 className="text-2xl font-bold text-black ">
           Our Completed Projects
         </h1>

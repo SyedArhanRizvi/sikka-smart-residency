@@ -3,7 +3,7 @@ import React from "react";
 
 function Enquiry() {
   return (
-    <section className="w-screen flex justify-center items-center bg-[#f5f5f5]">
+    <section className="w-screen flex flex-col md:flex-row justify-center items-center bg-[#f5f5f5]">
       {/* Left Section */}
       <div className="flex flex-col md:w-[50%] gap-10 p-5 bg-[#f5f5f5]">
         <div className="flex flex-col gap-4">

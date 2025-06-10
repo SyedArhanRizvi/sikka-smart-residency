@@ -24,7 +24,7 @@ function Footer() {
             </li>
             <li>
               <Link
-                href="/interior-services-in-noida-ghaziabad-greater-noida"
+                href="/"
                 className="hover:underline"
               >
                 Services
@@ -32,14 +32,14 @@ function Footer() {
             </li>
             <li>
               <Link
-                href="/complete-interior-projects"
+                href="/"
                 className="hover:underline"
               >
                 Projects
               </Link>
             </li>
             <li>
-              <Link href="/contact-us" className="hover:underline">
+              <Link href="/" className="hover:underline">
                 Contact Us
               </Link>
             </li>
@@ -156,7 +156,7 @@ function Footer() {
           solutions.
         </p>
         <p className="mt-4">
-          &copy; 2018 - {new Date().getFullYear()} Your Interior Studio. All
+          &copy; 2018 - {new Date().getFullYear()} Your Building Studio. All
           rights reserved.
         </p>
       </div>
