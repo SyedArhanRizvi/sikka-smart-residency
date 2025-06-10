@@ -1,19 +1,65 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className="flex justify-between md:pr-10 fixed top-0 w-screen z-50 items-center bg-gray-800 text-white p-6">
-      <div>
-        <h1 className="md:text-2xl md:font-bold">Sikka Samrat Residency</h1>
+    <nav className="fixed top-0 w-full z-50 bg-gray-900 text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 className="text-lg sm:text-2xl font-bold tracking-wide">
+          Sikka Samrat Residency
+        </h1>
+
+        <div className="hidden md:flex space-x-8 text-base font-medium">
+          <span className="hover:text-gray-400 cursor-pointer">Home</span>
+
+          <span className="hover:text-gray-400 cursor-pointer">Projects</span>
+
+          <span className="hover:text-gray-400 cursor-pointer">Service</span>
+
+          <span className="hover:text-gray-400 cursor-pointer">About</span>
+
+          <span className="hover:text-gray-400 cursor-pointer">Contact</span>
+        </div>
+
+        <div className="md:hidden">
+          <button onClick={toggleMenu}>
+            {isOpen ? (
+              <FaTimes size={22} className="text-white" />
+            ) : (
+              <FaBars size={22} className="text-white" />
+            )}
+          </button>
+        </div>
       </div>
-      <div className="flex space-x-7 justify-center items-center">
-        <h1 className="cursor-pointer hover:text-gray-400">Home</h1>
-        <h1 className="cursor-pointer hover:text-gray-400">Projects</h1>
-        <h1 className="cursor-pointer hover:text-gray-400">Service</h1>
-        <h1 className="cursor-pointer hover:text-gray-400">About</h1>
-        <h1 className="cursor-pointer hover:text-gray-400">Contact</h1>
-      </div>
+
+      {isOpen && (
+        <div className="md:hidden px-6 pb-4 space-y-4 bg-gray-800 text-base font-medium">
+          <span className="block hover:text-gray-400 cursor-pointer">Home</span>
+
+          <span className="block hover:text-gray-400 cursor-pointer">
+            Projects
+          </span>
+
+          <span className="block hover:text-gray-400 cursor-pointer">
+            Service
+          </span>
+
+          <span className="block hover:text-gray-400 cursor-pointer">
+            About
+          </span>
+
+          <span className="block hover:text-gray-400 cursor-pointer">
+            Contact
+          </span>
+        </div>
+      )}
     </nav>
   );
 }

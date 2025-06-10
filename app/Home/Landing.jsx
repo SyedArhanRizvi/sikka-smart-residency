@@ -1,72 +1,44 @@
 import React from "react";
-import { FaTwitter } from "react-icons/fa";
-
-import { FaFacebook } from "react-icons/fa6";
-
+import { FaTwitter, FaFacebook, FaYoutube } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
-import { FaYoutube } from "react-icons/fa6";
 
 function Landing() {
   return (
     <section
-      style={{
-        backgroundImage: "url('/sikka2.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className="w-screen bg-white p-10 text-black min-h-screen gap-5 flex justify-center items-center md:flex-row flex-col"
+      className="relative w-screen min-h-screen bg-cover bg-center flex items-center justify-center px-6 md:px-16 py-12"
+      style={{ backgroundImage: "url('/sikka2.jpg')" }}
     >
-      <div className="h-full w-full bg-[#00000057] top-0 left-0 absolute"></div>
+      <div className="absolute inset-0 bg-black/70 z-0" />
 
-      <div className="flex mt-26 p-5 md:z-50  flex-col bg-[#1515156b] justify-end items-center md:w-[40%]">
-        <div className="flex w-full gap-10 mb-5">
-          <h1 className="text-white text-2xl">
-            <FaTwitter />
+      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-8">
+        {/* Left Content */}
+        <div className="w-full md:w-1/2 text-white space-y-6">
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+            Sikka Samrat Residency
           </h1>
-          <h1 className="text-white text-2xl">
-            <FaFacebook />
-          </h1>
-          <h1 className="text-white text-2xl">
-            <RiInstagramFill />
-          </h1>
-          <h1 className="text-white text-2xl">
-            <FaYoutube />{" "}
-          </h1>
-        </div>
-        <div>
-          <p className="md:text-lg text-sm text-white mb-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad,
-            accusamus omnis? Nesciunt, ducimus impedit, commodi quibusdam ullam
-            cum autem, odit voluptate itaque incidunt nihil accusamus dolores!
-            Fuga illum harum distinctio!
+          <p className="text-lg md:text-xl text-gray-200">
+            Discover your dream home – luxury apartments in the heart of the city with all modern amenities. Step into your better life today.
           </p>
-          <button className="px-6 py-3 text-black bg-white rounded-md cursor-pointer transition duration-300">
-            Explore Now
+          <button className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-300 transition font-medium">
+            Book a Visit
           </button>
+        </div>
+
+        {/* Right Content */}
+        <div className="w-full md:w-1/2 bg-white/10 backdrop-blur-sm rounded-xl p-6">
+          <div className="grid grid-cols-2 gap-4">
+            <img src="/pic1.jpeg" alt="Living Room" className="rounded-lg h-40 object-cover shadow-lg" />
+            <img src="/pic2.jpeg" alt="Bedroom" className="rounded-lg h-40 object-cover shadow-lg" />
+            <img src="/pic3.jpeg" alt="Kitchen" className="rounded-lg h-40 object-cover shadow-lg col-span-2" />
+          </div>
         </div>
       </div>
 
-      <div className="flex flex-col md:w-[60%] gap-10 p-5 md:z-50 bg-[#07070781]">
-        <div className="flex flex-col items-start text-white md:w-[60%]">
-          <h1 className="text-xl md:text-3xl font-semibold mb-4">
-            Sikka Samrat Residency A Full Home Solution
-          </h1>
-          <button className="px-6 py-3 text-white border-white border-1 rounded-md cursor-pointer transition duration-300">
-            Explore More
-          </button>
-        </div>
-
-        <div className="flex justify-center items-center md:flex-row gap-8">
-          <div className="w-[150px] md:w-[33%] h-[200px]">
-            <img className="w-full h-full" src="/pic1.jpeg" alt="" />
-          </div>
-          <div className="w-[150px] md:w-[33%] h-[200px]">
-            <img className="w-full h-full" src="/pic2.jpeg" alt="" />
-          </div>
-          <div className="w-[150px] md:w-[33%] h-[200px]">
-            <img className="w-full h-full" src="/pic3.jpeg" alt="" />
-          </div>
-        </div>
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 flex gap-6 text-white text-2xl">
+        <FaTwitter className="hover:text-blue-400 transition" />
+        <FaFacebook className="hover:text-blue-600 transition" />
+        <RiInstagramFill className="hover:text-pink-500 transition" />
+        <FaYoutube className="hover:text-red-600 transition" />
       </div>
     </section>
   );
