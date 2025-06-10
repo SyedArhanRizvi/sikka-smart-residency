@@ -8,22 +8,26 @@ function Projects() {
     {
       img: "/pic1.jpeg",
       title: "Luxury Apartments",
-      paragraph: "Premium living spaces designed for elegance and comfort in the heart of the city.",
+      paragraph:
+        "Experience a refined lifestyle with our ultra-luxury apartments, crafted to offer unmatched comfort, contemporary aesthetics, and world-class amenities in the vibrant heart of the city.",
     },
     {
       img: "/pic2.jpeg",
       title: "Smart Villas",
-      paragraph: "A blend of technology and nature, these villas are built with intelligent architecture.",
+      paragraph:
+        "Where innovation meets elegance — our smart villas feature cutting-edge automation, serene green spaces, and bespoke interiors tailored for the modern visionary homeowner.",
     },
     {
       img: "/pic3.jpeg",
       title: "Modern Towers",
-      paragraph: "Our modern towers redefine urban living with sleek design and premium features.",
+      paragraph:
+        "Standing tall as architectural marvels, these sleek towers provide a panoramic city view, premium amenities, and the perfect fusion of style, security, and sophistication.",
     },
     {
       img: "/pic1.jpeg",
       title: "Family Residencies",
-      paragraph: "Perfectly built for families, combining safety, luxury, and convenience.",
+      paragraph:
+        "Thoughtfully designed for growing families, these residencies offer secure gated living, spacious layouts, and a warm, luxurious environment close to top schools and healthcare.",
     },
   ];
 
@@ -37,7 +41,8 @@ function Projects() {
           Our Completed Projects
         </h2>
         <p className="text-gray-600 text-sm md:text-base">
-          Discover the legacy of construction excellence. Each project is crafted with precision, innovation, and a vision for timeless value.
+          Discover the legacy of construction excellence. Each project is
+          crafted with precision, innovation, and a vision for timeless value.
         </p>
       </div>
 

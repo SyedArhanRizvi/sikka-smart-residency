@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { PopupContext } from "../context/PopupContext";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { setOpenPopup } = useContext(PopupContext);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -25,7 +26,12 @@ function Navbar() {
 
           <span className="hover:text-gray-400 cursor-pointer">About</span>
 
-          <span className="hover:text-gray-400 cursor-pointer">Contact</span>
+          <button
+            onClick={() => setOpenPopup(true)}
+            className="text-white px-4 py-2 rounded bg-yellow-500 hover:bg-yellow-400"
+          >
+            Contact Us
+          </button>
         </div>
 
         <div className="md:hidden">
@@ -55,9 +61,12 @@ function Navbar() {
             About
           </span>
 
-          <span className="block hover:text-gray-400 cursor-pointer">
-            Contact
-          </span>
+          <button
+            onClick={() => setOpenPopup(true)}
+            className="text-white px-4 py-2 rounded bg-yellow-500 hover:bg-yellow-400"
+          >
+            Contact Us
+          </button>
         </div>
       )}
     </nav>
