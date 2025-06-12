@@ -1,14 +1,18 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { FaTwitter, FaFacebook, FaYoutube } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { PopupContext } from "../context/PopupContext";
+import { motion, useInView } from "framer-motion";
 
 function Landing() {
-  
-    const { setOpenPopup } = useContext(PopupContext);
+  const { setOpenPopup } = useContext(PopupContext);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <>
+      {/* Primary Section */}
       <section className="w-screen flex flex-col md:flex-row justify-around items-center bg-[#ffffc1] p-10 text-black gap-10">
         <div className="flex flex-col gap-5 md:gap-6 md:w-[60%]">
           <p className="text-gray-500 text-sm tracking-wide">
@@ -46,8 +50,9 @@ function Landing() {
           </div>
 
           <button
-          onClick={()=>setOpenPopup(true)}
-          className="mt-6 w-fit px-6 py-3 bg-[#f5db49] text-black font-semibold rounded-md hover:bg-yellow-300 transition">
+            onClick={() => setOpenPopup(true)}
+            className="mt-6 w-fit px-6 py-3 bg-[#f5db49] text-black font-semibold rounded-md hover:bg-yellow-300 transition"
+          >
             Enquiry Now
           </button>
         </div>
@@ -60,6 +65,38 @@ function Landing() {
           />
         </div>
       </section>
+
+      {/* ✨ Animated Section with Framer Motion */}
+      <motion.section
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="w-screen bg-white px-6 py-16 flex flex-col md:flex-row items-center justify-center gap-12"
+      >
+        <div className="md:w-1/2 space-y-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Why Choose Sikka Smart Residency?
+          </h2>
+          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+            Our project is crafted with precision, using premium materials and
+            thoughtful design to ensure durability, comfort, and aesthetics.
+            Each apartment is more than just a home—it's a lifestyle.
+          </p>
+          <ul className="list-disc pl-5 text-gray-700 text-sm md:text-base">
+            <li>Prime Location in Delhi-NCR</li>
+            <li>Modern Amenities & Green Landscaping</li>
+            <li>Trusted Developer with Transparent Pricing</li>
+          </ul>
+        </div>
+        <div className="md:w-1/2">
+          <img
+            src="/quality.jpeg"
+            alt="Quality Living"
+            className="rounded-xl shadow-lg w-full h-full object-cover"
+          />
+        </div>
+      </motion.section>
     </>
   );
 }
