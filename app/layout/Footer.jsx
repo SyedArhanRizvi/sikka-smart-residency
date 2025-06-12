@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 function Footer() {
@@ -9,44 +9,37 @@ function Footer() {
   const [email, setEmail] = useState("");
   const [day, setDay] = useState("");
   const [time, setTime] = useState("");
-
+  
   return (
     <footer className=" text-white bg-black px-6 md:px-20 py-14 w-full">
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-        
         <div className="space-y-4">
           <h3 className="text-xl font-bold text-white">Quick Links</h3>
           <ul className="text-gray-300 space-y-2 text-sm">
             <li>
-              <Link href="/" className="hover:underline">
+              <a href="#home" className="hover:underline">
                 Home
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href="/"
-                className="hover:underline"
-              >
+              <a href="#service-section" className="hover:underline">
                 Services
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href="/"
-                className="hover:underline"
-              >
+              <a href="#our-projects-section" className="hover:underline">
                 Projects
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/" className="hover:underline">
+              <a href="/" className="hover:underline">
                 Contact Us
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/" className="hover:underline">
-                Privacy Policy
-              </Link>
+              <a href="#about-us-section" className="hover:underline">
+                About Us
+              </a>
             </li>
           </ul>
         </div>
@@ -152,8 +145,7 @@ function Footer() {
         <p>
           We provide premium builders services across <strong>Noida</strong>,{" "}
           <strong>Greater Noida</strong>, and <strong>Ghaziabad</strong> —
-          specializing in residenial, living spaces, and turnkey
-          solutions.
+          specializing in residenial, living spaces, and turnkey solutions.
         </p>
         <p className="mt-4">
           &copy; 2018 - {new Date().getFullYear()} Your Building Studio. All
