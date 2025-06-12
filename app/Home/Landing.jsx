@@ -84,14 +84,14 @@ function Landing() {
         </motion.div>
 
         {/* Right Content */}
-        <motion.div
+        {/* <motion.div
           className="w-full md:w-1/2 bg-white/10 backdrop-blur-sm rounded-xl p-6"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
         >
           <div className="grid grid-cols-2 gap-4">
-            {["/pic1.jpeg", "/pic2.jpeg", "/pic3.jpeg"].map((src, i) => (
+            {["/pic1.jpeg", "/pic2.jpeg", "/pic3.jpeg", "/pic1.jpeg"].map((src, i) => (
               <motion.img
                 key={src}
                 src={src}
@@ -106,7 +106,7 @@ function Landing() {
               />
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       {/* Social Icons */}

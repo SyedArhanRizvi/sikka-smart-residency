@@ -18,6 +18,7 @@ const ContactPopupForm = () => {
     <AnimatePresence>
       {openPopup && (
         <motion.div
+        onClick={()=>setOpenPopup(false)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -33,7 +34,7 @@ const ContactPopupForm = () => {
             {/* Close Button */}
             <button
               onClick={() => setOpenPopup(false)}
-              className="absolute cursor-pointer -top-2 right-2 text-3xl font-bold text-gray-500 hover:text-red-600 z-10"
+              className="absolute cursor-pointer top-1 right-3 text-3xl font-bold text-gray-500 hover:text-red-600 z-10"
             >
               ×
             </button>
@@ -59,7 +60,7 @@ const ContactPopupForm = () => {
 
             {/* Right Section - Form */}
             <form
-              className="w-full md:w-1/2 p-6 flex flex-col gap-4"
+              className="w-full md:w-1/2 p-10 flex flex-col gap-4"
               onSubmit={(e) => {
                 e.preventDefault();
                 // handleSubmit();
