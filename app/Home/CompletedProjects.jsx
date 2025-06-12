@@ -70,7 +70,7 @@ function CompletedProjects() {
           quia magnam voluptatem labore aliquid?
         </p>
         <motion.button
-          whileHover={{ scale: 1.1 }}
+          whilehover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setOpenPopup(true)}
           className="py-2 px-7 cursor-pointer hover:bg-white hover:text-black delay-10 transition-all font-bold border-2 border-white"

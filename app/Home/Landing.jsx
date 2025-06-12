@@ -40,7 +40,7 @@ function Landing() {
 
   return (
     <section
-      className="relative w-screen min-h-screen mt-10 md:mt-0 bg-cover bg-center flex items-center justify-center px-6 md:px-16 py-12"
+      className="relative w-screen min-h-screen  md:mt-0 bg-cover bg-center flex items-center justify-center px-6 md:px-16 py-12"
       style={{ backgroundImage: "url('/sikka2.jpg')" }}
     >
       <div className="absolute inset-0 bg-black/70 z-0" />
@@ -71,7 +71,7 @@ function Landing() {
             city with all modern amenities. Step into your better life today.
           </motion.p>
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whilehover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setOpenPopup(true)}
             className="px-8 py-3 cursor-pointer bg-white text-black rounded-md hover:bg-gray-300 transition font-medium"
@@ -120,7 +120,7 @@ function Landing() {
           (Icon, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ scale: 1.3 }}
+              whilehover={{ scale: 1.3 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Icon className="transition cursor-pointer duration-300 hover:text-opacity-80" />

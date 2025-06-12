@@ -65,7 +65,7 @@ function Navbar() {
           {navLinks.map((link) => (
             <motion.div
               key={link.name}
-              whileHover={{ scale: 1.05 }}
+              whilehover={{ scale: 1.05 }}
               className="relative group"
             >
               <a
@@ -77,7 +77,7 @@ function Navbar() {
               <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
             </motion.div>
           ))}
-          <motion.div whileHover={{ scale: 1.05 }}>
+          <motion.div whilehover={{ scale: 1.05 }}>
             <p
               onClick={() => setOpenPopup(true)}
               className="whitespace-nowrap cursor-pointer bg-white text-black px-4 py-2 rounded-full font-semibold uppercase shadow hover:bg-gray-100 transition duration-300"

@@ -192,7 +192,7 @@ function TopProject() {
             <motion.div
               key={idx}
               className="bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
-              whileHover={{ scale: 1.07 }}
+              whilehover={{ scale: 1.07 }}
               transition={{ type: "spring", stiffness: 250 }}
             >
               <img

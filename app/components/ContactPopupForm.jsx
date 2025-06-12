@@ -91,7 +91,7 @@ const ContactPopupForm = () => {
                 required
               />
               <motion.input
-                whileHover={{ scale: 1.05 }}
+                whilehover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
                 value="Submit"

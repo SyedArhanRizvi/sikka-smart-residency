@@ -114,7 +114,7 @@ function AboutUs() {
           idx % 2 === 0 ? (
             <motion.div
               key={idx}
-              whileHover={{ scale: 1.05 }}
+              whilehover={{ scale: 1.05 }}
               initial={{ x: 100, opacity: 0.5 }}
               animate={{ x: -2000, opacity: 1 }}
               transition={{
@@ -128,7 +128,7 @@ function AboutUs() {
           ) : (
             <motion.div
               key={idx}
-              whileHover={{ scale: 1.05 }}
+              whilehover={{ scale: 1.05 }}
               initial={{ x: 100, opacity: 0.5 }}
               animate={{ x: -2000, opacity: 1 }}
               transition={{
