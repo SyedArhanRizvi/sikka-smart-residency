@@ -1,212 +1,268 @@
 "use client";
-import React, { useContext } from "react";
-import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
+import React, { useContext, useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaClock, FaTools, FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
+import { MdDeliveryDining } from "react-icons/md";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { PopupContext } from "../context/PopupContext";
 
 function TopProject() {
   const { setOpenPopup } = useContext(PopupContext);
+  const carouselData = [
+    {
+      img: "/projectsample.jpg",
+      seoTitle: "High-Quality Construction Materials",
+      seoDescription:
+        "We use top-grade, certified materials to ensure durable and sustainable construction results.",
+    },
+    {
+      img: "/build.jpeg",
+      seoTitle: "Luxurious Villa Construction",
+      seoDescription:
+        "Crafting elegant villas with premium architecture and precision engineering tailored to your dreams.",
+    },
+    {
+      img: "/v1.jpg",
+      seoTitle: "Residential Project Development",
+      seoDescription:
+        "End-to-end residential construction solutions — from planning to final execution with quality assurance.",
+    },
+    {
+      img: "/pic1.jpeg",
+      seoTitle: "Modern Apartment Projects",
+      seoDescription:
+        "Expertise in constructing multi-floor apartment buildings with modern design and eco-friendly systems.",
+    },
+    {
+      img: "/sikka.jpeg",
+      seoTitle: "Commercial Space Development",
+      seoDescription:
+        "We specialize in high-end commercial buildings with functionality, safety, and elegance in mind.",
+    },
+  ];
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.2,
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    }),
+  const [index, setIndex] = useState(0);
+
+  // Auto Slide
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % carouselData.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [carouselData.length]);
+
+  const ourServiceGoodies = [
+    {
+      title: "Quality Material Use",
+      description: "We use only high-grade and durable materials.",
+      icon: <FaTools className="text-white text-2xl" />,
+    },
+    {
+      title: "Time Management",
+      description: "We stick to deadlines and ensure prompt delivery.",
+      icon: <FaClock className="text-white text-2xl" />,
+    },
+    {
+      title: "From Workshop to Home",
+      description: "Direct delivery from our workshop to your doorstep.",
+      icon: <MdDeliveryDining className="text-white text-2xl" />,
+    },
+  ];
+
+  const ourServices = [
+    {
+      img: "pic1.jpeg",
+      title: "Residential Building Construction",
+      description:
+        "From blueprint to build, we create sturdy and beautiful homes.",
+    },
+    {
+      img: "pic2.jpeg",
+      title: "Commercial Building Projects",
+      description:
+        "Modern and functional commercial structures tailored to your needs.",
+    },
+    {
+      img: "pic3.jpeg",
+      title: "Architectural Design",
+      description:
+        "Creative and practical architectural planning for all building types.",
+    },
+    {
+      img: "pic1.jpeg",
+      title: "Project Management",
+      description:
+        "Timely and cost-effective construction project execution and management.",
+    },
+    {
+      img: "pic2.jpeg",
+      title: "Renovation & Remodeling",
+      description:
+        "Upgrade existing structures with modern and efficient designs.",
+    },
+  ];
+
+  const handlePrev = () => {
+    setIndex((prev) => (prev === 0 ? carouselData.length - 1 : prev - 1));
   };
 
-  const sectionFade = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 1 },
-    },
+  const handleNext = () => {
+    setIndex((prev) => (prev + 1) % carouselData.length);
   };
 
   return (
-    <motion.section
-      className="w-full flex flex-col bg-[#fefefe] text-black px-6 py-12 gap-16"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={sectionFade}
-    >
-      {/* Header Section */}
-      <motion.div
-        className="text-center space-y-4"
-        custom={1}
-        variants={fadeInUp}
-      >
-        <h1 className="text-4xl md:text-5xl font-bold">
-          A Realm Worthy of Your Legacy
-        </h1>
-        <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto">
-          Ultra-Luxury Villas & Apartments in Sector 79, Noida. Central Noida’s
-          Only Address with Infinity Pool, Rooftop Dining, and Private
-          Concierge.
-        </p>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setOpenPopup(true)}
-          className="bg-yellow-500 text-white px-6 py-3 rounded-md hover:bg-yellow-400 transition flex items-center justify-center gap-2 mx-auto"
-        >
-          Know More <FaArrowRight />
-        </motion.button>
-      </motion.div>
+    <section className="max-w-[100vw] overflow-hidden">
+      {/* Image Carousel */}
+      <div className="relative w-screen h-[600px] overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={carouselData[index].img}
+            src={carouselData[index].img}
+            alt={carouselData[index].seoTitle}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full h-full object-cover absolute top-0 left-0"
+          />
+        </AnimatePresence>
 
-      {/* Intro Section */}
-      <motion.div
-        className="flex flex-col md:flex-row gap-6 items-center"
-        variants={fadeInUp}
-        custom={2}
-      >
-        <motion.div className="md:w-1/2 space-y-4">
-          <h2 className="text-2xl font-semibold">
-            Introduction to the Project
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="absolute top-0 left-0 md:pl-18 w-full h-full bg-black/50 flex flex-col justify-center items-start px-6 sm:px-12 text-white"
+        >
+          <h2 className="text-2xl sm:text-4xl font-bold">
+            {carouselData[index].seoTitle}
           </h2>
-          <p className="text-gray-600">
-            Samrat Residencies is a world crafted for achievers, visionaries,
-            and legacy-makers...Samrat Residencies is a world crafted for
-            achievers, visionaries, and legacy-makers...Samrat Residencies is a
-            world crafted for achievers, visionaries, and legacy-makers...Samrat
-            Residencies is a world crafted for achievers, visionaries, and
-            legacy-makers...
-          </p>
-          <p
-            onClick={() => setOpenPopup(true)}
-            className="text-yellow-600 font-medium cursor-pointer hover:underline"
-          >
-            Learn More
+          <p className="text-sm sm:text-base mt-2 max-w-md">
+            {carouselData[index].seoDescription}
           </p>
         </motion.div>
-        <motion.img
-          src="/v1.jpg"
-          alt="Residency"
-          className="rounded-xl w-full md:w-1/2 shadow-xl object-cover"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-        />
-      </motion.div>
 
-      {/* Builder Section */}
-      <motion.div
-        className="flex flex-col md:flex-row-reverse gap-6 items-center"
-        variants={fadeInUp}
-        custom={3}
-      >
-        <div className="md:w-1/2 space-y-4">
-          <h2 className="text-2xl font-semibold">About the Builder</h2>
-          <p className="text-gray-600">
-            With over two decades of trust and excellence, Sikka Group With over
-            two decades of trust and excellence, Sikka Group With over two
-            decades of trust and excellence, Sikka Group With over two decades
-            of trust and excellence, Sikka Group With over two decades of trust
-            and excellence, Sikka Group...
-          </p>
-          <p
-            onClick={() => setOpenPopup(true)}
-            className="text-yellow-600 font-medium cursor-pointer hover:underline"
-          >
-            Learn More
-          </p>
-        </div>
-        <motion.img
-          src="/v2.jpeg"
-          alt="Builder"
-          className="rounded-xl w-full md:w-1/2 shadow-xl object-cover"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-        />
-      </motion.div>
-
-      {/* Features Section */}
-      <motion.div className="space-y-4" variants={fadeInUp} custom={4}>
-        <h2 className="text-2xl font-semibold text-center">
-          Features, Amenities & Benefits
-        </h2>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 list-disc pl-6">
-          <li>Private infinity pool – only in Central Noida</li>
-          <li>Rooftop restaurant & lounge with skyline views</li>
-          <li>Private villas with pools & courtyards</li>
-          <li>6161 sq. ft. ultra-luxury apartments</li>
-          <li>Wellness spa, fitness studio, concierge desk</li>
-          <li>Low-density living with high-end privacy</li>
-        </ul>
-        <div className="text-center">
-          <p
-            onClick={() => setOpenPopup(true)}
-            className="text-yellow-600 font-medium cursor-pointer hover:underline"
-          >
-            See More
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Location Section */}
-      <motion.div className="space-y-4" variants={fadeInUp} custom={5}>
-        <h2 className="text-2xl font-semibold text-center">
-          About the Location
-        </h2>
-        <p className="text-gray-600 text-center max-w-3xl mx-auto">
-          Located in the prestigious Sector 79 of Central Noida...
-        </p>
-        <div className="text-center">
-          <p
-            onClick={() => setOpenPopup(true)}
-            className="text-yellow-600 font-medium cursor-pointer hover:underline"
-          >
-            See More
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Layout Section */}
-      <motion.div className="space-y-4" variants={fadeInUp} custom={6}>
-        <h2 className="text-2xl font-semibold text-center">Layout Options</h2>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 list-disc pl-6">
-          <li>4 BHK Apartments – 6161 sq. ft.</li>
-          <li>4 & 5 BHK Villas – 10,000 sq. ft. with private pools</li>
-          <li>Expansive balconies, dual lounges, high ceilings</li>
-          <li>Customization options available in villas</li>
-        </ul>
-        <div className="text-center">
-          <p
-            onClick={() => setOpenPopup(true)}
-            className="text-yellow-600 font-medium cursor-pointer hover:underline"
-          >
-            Explore Layouts
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Final CTA Section */}
-      <motion.div
-        className="text-center space-y-4 max-w-4xl mx-auto"
-        variants={fadeInUp}
-        custom={7}
-      >
-        <h2 className="text-2xl font-semibold">Your Legacy, Your Home</h2>
-        <p className="text-gray-700">
-          Your home should reflect not just your lifestyle—but your legacy...
-        </p>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setOpenPopup(true)}
-          className="bg-yellow-500 text-white px-6 py-3 rounded-md hover:bg-yellow-400 transition flex items-center justify-center gap-2"
+        {/* Controls */}
+        {/* Left Button */}
+        <button
+          onClick={handlePrev}
+          className="cursor-pointer hidden sm:block absolute top-1/2 left-4 transform -translate-y-1/2 z-10 bg-white/90 text-black hover:bg-white p-3 rounded-full shadow-md"
         >
-          Schedule a Visit <FaArrowRight />
-        </motion.button>
-      </motion.div>
-    </motion.section>
+          <FaChevronLeft className="text-xl" />
+        </button>
+
+        {/* Right Button */}
+        <button
+          onClick={handleNext}
+          className="cursor-pointer hidden sm:block absolute top-1/2 right-4 transform -translate-y-1/2 z-10 bg-white/90 text-black hover:bg-white p-3 rounded-full shadow-md"
+        >
+          <FaChevronRight className="text-xl" />
+        </button>
+      </div>
+
+      {/* Goodies */}
+      <div className="bg-black py-8 px-4 flex flex-col md:flex-row justify-around items-center text-white gap-4">
+        {ourServiceGoodies.map((item, i) => (
+          <div key={i} className="flex items-center gap-3 text-center">
+            {item.icon}
+            <div>
+              <h4 className="font-semibold text-lg">{item.title}</h4>
+              <p className="text-sm">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Our Services */}
+
+      <div className="py-16 bg-gradient-to-t from-[#1f1e25] via-[#282829] to-[#c7c7c7]">
+        <div className="text-center">
+          {" "}
+          <h2 className="text-3xl font-extrabold  text-center mb-10 text-green-800 relative inline-block">
+            Our Premium Services
+            <span className="block h-1 w-20 bg-green-600 rounded mt-2 mx-auto"></span>
+          </h2>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {ourServices.map((service, idx) => (
+            <motion.div
+              key={idx}
+              className="bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
+              whileHover={{ scale: 1.07 }}
+              transition={{ type: "spring", stiffness: 250 }}
+            >
+              <img
+                src={service.img}
+                alt={service.title}
+                className="w-full h-64 object-cover rounded-xl mb-6"
+              />
+              <h3 className="text-xl font-semibold text-green-900 mb-3">
+                {service.title}
+              </h3>
+              <p className="text-gray-700 flex-grow">{service.description}</p>
+              <button
+                onClick={() => {
+                  setOpenPopup(true);
+                }}
+                type="button"
+                className="mt-6 cursor-pointer bg-green-700 text-white font-medium px-5 py-3 rounded-lg hover:bg-green-800 transition-colors"
+              >
+                Get Connect
+              </button>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Why Choose Us Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between px-8 sm:px-12 py-12 bg-white">
+        <div className="md:w-1/2">
+          <h3 className="text-xl font-bold">Why Choose Us?</h3>
+          <p className="mt-4 text-md max-w-md">
+            We deliver top-quality interior designs tailored to your lifestyle
+            and preferences. Our team ensures a smooth process from consultation
+            to final installation. Attention to detail, client satisfaction, and
+            commitment to excellence are our hallmarks.
+          </p>
+          <button
+            onClick={() => setOpenPopup(true)}
+            type="button"
+            className="mt-4 cursor-pointer bg-green-600 text-white px-4 py-2 rounded flex items-center gap-2"
+          >
+            <FaPhoneAlt /> Call Now
+          </button>
+        </div>
+        <div className="md:w-1/2 mt-6 md:mt-0">
+          <img src="/trust.jpeg" alt="About Us" className="w-full rounded-xl" />
+        </div>
+      </div>
+
+      {/* Happy Clients Section */}
+      <div className="flex flex-col md:flex-row-reverse items-center justify-between px-6 md:px-16 py-12 bg-gray-50 gap-6">
+        <div className="md:w-1/2">
+          <h3 className="text-xl font-bold">We Make Family, Not Clients</h3>
+          <p className="mt-4 text-md max-w-md">
+            With hundreds of happy customers, we pride ourselves in building
+            relationships that last. Read our client reviews and see how we’ve
+            transformed homes across the city.
+          </p>
+          <button
+            onClick={() => setOpenPopup(true)}
+            className="mt-4 bg-green-600 cursor-pointer text-white px-4 py-2 rounded flex items-center gap-2"
+          >
+            <FaWhatsapp /> WhatsApp Us
+          </button>
+        </div>
+        <div className="md:w-1/2 mt-6 md:mt-0">
+          <img
+            src="/client.jpeg"
+            alt="Happy Clients"
+            className="w-full rounded-xl max-h-[400px] object-cover"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
 
