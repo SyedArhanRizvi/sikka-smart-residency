@@ -163,7 +163,10 @@ function TopProject() {
       {/* Goodies */}
       <div className="bg-black py-8 px-4 flex flex-col md:flex-row justify-around items-center text-white gap-4">
         {ourServiceGoodies.map((item, i) => (
-          <div key={i} className="flex items-center gap-3 text-center">
+          <div
+            key={i}
+            className="flex border-b-1 pb-5 md:pb-0 border-[#5f5959c5] md:border-none items-center gap-3 text-center"
+          >
             {item.icon}
             <div>
               <h4 className="font-semibold text-lg">{item.title}</h4>
