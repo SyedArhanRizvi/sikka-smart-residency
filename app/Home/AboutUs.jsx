@@ -10,43 +10,43 @@ function AboutUs() {
   const projectsDone = [
     {
       img: "/pic1.jpeg",
-      title: "This is demo 1.",
-      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+      title: "Creative Space 1",
+      para: "We blend design and technology to build solutions that inspire and engage across diverse industries.",
     },
     {
       img: "/pic2.jpeg",
-      title: "This is demo 2.",
-      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+      title: "Creative Space 2",
+      para: "From concept to launch, we ensure every step reflects originality, quality, and user delight.",
     },
     {
       img: "/pic3.jpeg",
-      title: "This is demo 3.",
-      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+      title: "Creative Space 3",
+      para: "Empowering ideas with digital solutions that shape the future and enhance lifestyles.",
     },
     {
       img: "/pic1.jpeg",
-      title: "This is demo 4.",
-      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
-    },
-    {
-      img: "/pic1.jpeg",
-      title: "This is demo 1.",
-      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+      title: "Creative Space 4",
+      para: "Delivering thoughtful designs and functional builds tailored to the needs of modern users.",
     },
     {
       img: "/pic2.jpeg",
-      title: "This is demo 2.",
-      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+      title: "Creative Space 5",
+      para: "Innovation meets impact – turning ideas into interactive, purposeful realities.",
     },
     {
       img: "/pic3.jpeg",
-      title: "This is demo 3.",
-      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+      title: "Creative Space 6",
+      para: "Built with intention, scaled for growth – we believe in lasting impressions.",
     },
     {
       img: "/pic1.jpeg",
-      title: "This is demo 4.",
-      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+      title: "Creative Space 7",
+      para: "Driven by creativity and fueled by passion, we craft solutions that speak for themselves.",
+    },
+    {
+      img: "/pic2.jpeg",
+      title: "Creative Space 8",
+      para: "We focus on precision, performance, and people-centric outcomes that resonate.",
     },
   ];
 
@@ -63,34 +63,34 @@ function AboutUs() {
       >
         <div>
           <p className="text-md text-green-400">About Us</p>
-          <h1 className="text-3xl md:text-5xl text-white font-semibold mt-2">
-            We Have Experience In This Field
+          <h1 className="text-3xl md:text-4xl text-white font-serif mt-2">
+            Crafting Tomorrow’s Digital Stories
           </h1>
           <p className="text-sm text-gray-400 mt-4">
-            With a legacy of trust and excellence, Sikka Group brings you Samrat
-            Residency – a fusion of innovation and tradition. Our experience has
-            helped thousands of families find their dream homes with confidence
-            and comfort.
+            At the heart of our work is a deep commitment to creativity,
+            customer-centric solutions, and forward-thinking design. We believe
+            in delivering more than products — we create meaningful digital
+            experiences that resonate with people.
           </p>
         </div>
 
-        {/* Stats Section */}
+        {/* Highlight Section */}
         <div className="grid grid-cols-2 gap-4 text-center">
           <div>
-            <p className="text-white text-3xl font-bold">28+</p>
-            <p className="text-sm text-gray-400">Years Experience</p>
+            <p className="text-white text-3xl font-bold">40+</p>
+            <p className="text-sm text-gray-400">Solutions Delivered</p>
           </div>
           <div>
-            <p className="text-white text-3xl font-bold">255+</p>
-            <p className="text-sm text-gray-400">Team Members</p>
+            <p className="text-white text-3xl font-bold">300K+</p>
+            <p className="text-sm text-gray-400">Users Impacted</p>
           </div>
           <div>
-            <p className="text-white text-3xl font-bold">500+</p>
-            <p className="text-sm text-gray-400">Projects</p>
+            <p className="text-white text-3xl font-bold">95%</p>
+            <p className="text-sm text-gray-400">Client Retention</p>
           </div>
           <div>
-            <p className="text-white text-3xl font-bold">605+</p>
-            <p className="text-sm text-gray-400">Happy Clients</p>
+            <p className="text-white text-3xl font-bold">24/7</p>
+            <p className="text-sm text-gray-400">Support Availability</p>
           </div>
         </div>
 
@@ -114,13 +114,13 @@ function AboutUs() {
           idx % 2 === 0 ? (
             <motion.div
               key={idx}
-              whilehover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05 }}
               initial={{ x: 100, opacity: 0.5 }}
               animate={{ x: -2000, opacity: 1 }}
               transition={{
                 duration: 20,
                 repeat: Infinity,
-                repeatType: "reverse", // or "reverse", if you want it to bounce back
+                repeatType: "reverse",
               }}
             >
               <AboutCCard data={data} />
@@ -128,13 +128,13 @@ function AboutUs() {
           ) : (
             <motion.div
               key={idx}
-              whilehover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05 }}
               initial={{ x: 100, opacity: 0.5 }}
               animate={{ x: -2000, opacity: 1 }}
               transition={{
                 duration: 20,
                 repeat: Infinity,
-                repeatType: "reverse", // can also be "mirror" or "reverse"
+                repeatType: "reverse",
               }}
             >
               <AboutCCard2 data={data} />

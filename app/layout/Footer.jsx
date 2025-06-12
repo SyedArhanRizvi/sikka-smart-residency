@@ -1,8 +1,7 @@
 "use client";
-
-import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { PopupContext } from "../context/PopupContext";
 
 function Footer() {
   const [name, setName] = useState("");
@@ -10,6 +9,7 @@ function Footer() {
   const [day, setDay] = useState("");
   const [time, setTime] = useState("");
   
+    const { setOpenPopup } = useContext(PopupContext);
   return (
     <footer className=" text-white bg-black px-6 md:px-20 py-14 w-full">
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -32,9 +32,9 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="/" className="hover:underline">
+              <p onClick={()=>setOpenPopup(true)} className="hover:underline">
                 Contact Us
-              </a>
+              </p>
             </li>
             <li>
               <a href="#about-us-section" className="hover:underline">
