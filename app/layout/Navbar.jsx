@@ -39,16 +39,21 @@ function Navbar() {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-10 h-10 md:w-12 md:h-12">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative overflow-hidden rounded-full w-10 h-10 md:w-12 md:h-12"
+          >
             <Image
-              src="/sikka.png"
+              src="/sikkaSamraat.png"
               alt="Noida Sofa Maker"
               fill
               sizes="(max-width: 768px) 40px, 44px"
               className="object-contain"
               priority
             />
-          </div>
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
