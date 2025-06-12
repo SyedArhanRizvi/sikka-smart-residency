@@ -74,7 +74,7 @@ function Landing() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setOpenPopup(true)}
-            className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-300 transition font-medium"
+            className="px-8 py-3 cursor-pointer bg-white text-black rounded-md hover:bg-gray-300 transition font-medium"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -123,7 +123,7 @@ function Landing() {
               whileHover={{ scale: 1.3 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Icon className="transition duration-300 hover:text-opacity-80" />
+              <Icon className="transition cursor-pointer duration-300 hover:text-opacity-80" />
             </motion.div>
           )
         )}

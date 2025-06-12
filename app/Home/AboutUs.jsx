@@ -28,6 +28,26 @@ function AboutUs() {
       title: "This is demo 4.",
       para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
     },
+    {
+      img: "/pic1.jpeg",
+      title: "This is demo 1.",
+      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+    },
+    {
+      img: "/pic2.jpeg",
+      title: "This is demo 2.",
+      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+    },
+    {
+      img: "/pic3.jpeg",
+      title: "This is demo 3.",
+      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+    },
+    {
+      img: "/pic1.jpeg",
+      title: "This is demo 4.",
+      para: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium aspernatur iure tempore quidem quibusdam",
+    },
   ];
 
   const { setOpenPopup } = useContext(PopupContext);
@@ -47,7 +67,10 @@ function AboutUs() {
             We Have Experience In This Field
           </h1>
           <p className="text-sm text-gray-400 mt-4">
-            With a legacy of trust and excellence, Sikka Group brings you Samrat Residency – a fusion of innovation and tradition. Our experience has helped thousands of families find their dream homes with confidence and comfort.
+            With a legacy of trust and excellence, Sikka Group brings you Samrat
+            Residency – a fusion of innovation and tradition. Our experience has
+            helped thousands of families find their dream homes with confidence
+            and comfort.
           </p>
         </div>
 
@@ -82,7 +105,7 @@ function AboutUs() {
 
       {/* Right Side Carousel */}
       <motion.div
-        className="md:w-1/2 w-full flex overflow-x-auto gap-5 p-4 md:p-10"
+        className="md:w-1/2 w-full flex overflow-x-auto overflow-y-hidden gap-5 p-4 md:p-10"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -92,7 +115,13 @@ function AboutUs() {
             <motion.div
               key={idx}
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              initial={{ x: 100, opacity: 0.5 }}
+              animate={{ x: -2000, opacity: 1 }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                repeatType: "reverse", // or "reverse", if you want it to bounce back
+              }}
             >
               <AboutCCard data={data} />
             </motion.div>
@@ -100,7 +129,13 @@ function AboutUs() {
             <motion.div
               key={idx}
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              initial={{ x: 100, opacity: 0.5 }}
+              animate={{ x: -2000, opacity: 1 }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                repeatType: "reverse", // can also be "mirror" or "reverse"
+              }}
             >
               <AboutCCard2 data={data} />
             </motion.div>

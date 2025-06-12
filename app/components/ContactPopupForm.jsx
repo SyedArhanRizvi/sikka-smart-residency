@@ -6,13 +6,13 @@ import { PopupContext } from "../context/PopupContext";
 const ContactPopupForm = () => {
   const { openPopup, setOpenPopup } = useContext(PopupContext);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpenPopup(true);
-    }, 10000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setOpenPopup(true);
+  //   }, 10000);
 
-    return () => clearTimeout(timer);
-  }, [setOpenPopup]);
+  //   return () => clearTimeout(timer);
+  // }, [setOpenPopup]);
 
   return (
     <AnimatePresence>
