@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaTwitter, FaFacebook, FaYoutube } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
-
+import { PopupContext } from "../context/PopupContext";
+import { motion } from "framer-motion";
 function Landing() {
+  const { setOpenPopup } = useContext(PopupContext);
   return (
     <section
       className="relative w-screen min-h-screen bg-cover bg-center flex items-center justify-center px-6 md:px-16 py-12"
@@ -17,9 +19,13 @@ function Landing() {
             Sikka Samrat Residency
           </h1>
           <p className="text-lg md:text-xl text-gray-200">
-            Discover your dream home – luxury apartments in the heart of the city with all modern amenities. Step into your better life today.
+            Discover your dream home – luxury apartments in the heart of the
+            city with all modern amenities. Step into your better life today.
           </p>
-          <button className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-300 transition font-medium">
+          <button
+            onClick={() => setOpenPopup(true)}
+            className="px-8 py-3 bg-white text-black rounded-md hover:bg-gray-300 transition font-medium"
+          >
             Book a Visit
           </button>
         </div>
@@ -27,9 +33,24 @@ function Landing() {
         {/* Right Content */}
         <div className="w-full md:w-1/2 bg-white/10 backdrop-blur-sm rounded-xl p-6">
           <div className="grid grid-cols-2 gap-4">
-            <img src="/pic1.jpeg" alt="Living Room" className="rounded-lg h-40 object-cover shadow-lg" />
-            <img src="/pic2.jpeg" alt="Bedroom" className="rounded-lg h-40 object-cover shadow-lg" />
-            <img src="/pic3.jpeg" alt="Kitchen" className="rounded-lg h-40 object-cover shadow-lg col-span-2" />
+            <motion.img
+              animate={{ x: [null, 100, 0] }} 
+              src="/pic1.jpeg"
+              alt="Living Room"
+              className="rounded-lg h-40 object-cover shadow-lg"
+            />
+            <motion.img
+              animate={{ x: [0, 100, 0] }}
+              src="/pic2.jpeg"
+              alt="Bedroom"
+              className="rounded-lg h-40 object-cover shadow-lg"
+            />
+            <motion.img
+              animate={{ x: [0, 100, 0] }}
+              src="/pic3.jpeg"
+              alt="Kitchen"
+              className="rounded-lg h-40 object-cover shadow-lg col-span-2"
+            />
           </div>
         </div>
       </div>

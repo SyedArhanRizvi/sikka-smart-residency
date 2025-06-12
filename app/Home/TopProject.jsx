@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { PopupContext } from "../context/PopupContext";
 
 function TopProject() {
+  const { setOpenPopup } = useContext(PopupContext);
   return (
     <section className="w-full flex flex-col bg-[#fefefe] text-black px-6 py-12 gap-12">
       <div className="text-center space-y-4">
@@ -14,7 +16,10 @@ function TopProject() {
           Only Address with Infinity Pool, Rooftop Dining, and Private
           Concierge.
         </p>
-        <button className="bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-400 transition">
+        <button
+          onClick={() => setOpenPopup(true)}
+          className="bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-400 transition"
+        >
           Know More <FaArrowRight className="inline ml-2" />
         </button>
       </div>
@@ -124,7 +129,10 @@ function TopProject() {
           Samrat Residencies, we don’t sell addresses. We offer realms for those
           who command respect without saying a word.
         </p>
-        <button className="bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-400 transition">
+        <button
+          onClick={() => setOpenPopup(true)}
+          className="bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-400 transition"
+        >
           Schedule a Visit <FaArrowRight className="inline ml-2" />
         </button>
       </div>

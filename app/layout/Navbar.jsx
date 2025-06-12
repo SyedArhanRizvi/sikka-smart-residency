@@ -17,7 +17,7 @@ function Navbar() {
           Sikka Samrat Residency
         </h1>
 
-        <div className="hidden md:flex space-x-8 text-base font-medium">
+        <div className="hidden md:flex md:justify-center md:items-center space-x-8 text-base font-medium">
           <span className="hover:text-gray-400 cursor-pointer">Home</span>
 
           <span className="hover:text-gray-400 cursor-pointer">Projects</span>

@@ -20,7 +20,7 @@ const ContactPopupForm = () => {
       <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg relative">
         <button
           onClick={() => setOpenPopup(false)}
-          className="absolute top-2 right-3 text-xl font-bold text-gray-500 hover:text-red-500"
+          className="absolute cursor-pointer top-2 right-3 text-xl md:text-4xl font-bold text-gray-500 hover:text-red-500"
         >
           ×
         </button>
@@ -68,7 +68,7 @@ const ContactPopupForm = () => {
 
           <button
             type="submit"
-            className="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-400 transition"
+            className="w-full cursor-pointer bg-yellow-700 text-white py-2 rounded hover:bg-yellow-800 transition"
           >
             Submit Enquiry
           </button>
