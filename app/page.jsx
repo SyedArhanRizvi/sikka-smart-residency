@@ -11,7 +11,7 @@ import CompletedProjects from './Home/CompletedProjects'
 
 function page() {
   return (
-    <>
+    <main className='overflow-x-hidden'>
       <Landing></Landing>
       <CompletedProjects></CompletedProjects>
       <Experienced></Experienced>
@@ -20,7 +20,7 @@ function page() {
       <Enquiry></Enquiry>
       <RunningProj></RunningProj>
       <TopProject></TopProject>
-    </>
+    </main>
   )
 }
 

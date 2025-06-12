@@ -1,5 +1,6 @@
 "use client";
 import React, { useContext, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { PopupContext } from "../context/PopupContext";
 
 const ContactPopupForm = () => {
@@ -8,73 +9,98 @@ const ContactPopupForm = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpenPopup(true);
-    }, 5000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, [setOpenPopup]);
 
-  if (!openPopup) return null;
-
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg relative">
-        <button
-          onClick={() => setOpenPopup(false)}
-          className="absolute cursor-pointer top-2 right-3 text-xl md:text-4xl font-bold text-gray-500 hover:text-red-500"
+    <AnimatePresence>
+      {openPopup && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
         >
-          ×
-        </button>
-        <h2 className="text-xl font-bold mb-4">Enquire Now</h2>
-        <p className="text-sm mb-2">
-          Interested in experiencing Samrat Residencies?
-        </p>
-        <ul className="text-sm mb-4 text-gray-600 space-y-1">
-          <li>📍 Visit: Sector 79, Noida</li>
-          <li>📞 Call: +91-XXXXXXXXXX</li>
-          <li>📧 Email: info@sikkasamrat.in</li>
-        </ul>
-        <form className="space-y-3">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full border rounded px-3 py-2"
-            required
-          />
-
-          <input
-            type="tel"
-            placeholder="Contact Number"
-            className="w-full border rounded px-3 py-2"
-            required
-          />
-
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="w-full border rounded px-3 py-2"
-            required
-          />
-
-          <select className="w-full border rounded px-3 py-2">
-            <option>Preferred Unit Type</option>
-            <option>4 BHK Apartment</option>
-            <option>4 BHK Villa</option> <option>5 BHK Villa</option>
-          </select>
-
-          <select className="w-full border rounded px-3 py-2">
-            <option>Schedule a Site Visit?</option>
-            <option>Yes</option> <option>No</option>
-          </select>
-
-          <button
-            type="submit"
-            className="w-full cursor-pointer bg-yellow-700 text-white py-2 rounded hover:bg-yellow-800 transition"
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0, y: 100 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.8, opacity: 0, y: 100 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="bg-white rounded-2xl overflow-hidden w-full max-w-4xl shadow-2xl relative flex flex-col md:flex-row"
           >
-            Submit Enquiry
-          </button>
-        </form>
-      </div>{" "}
-    </div>
+            {/* Close Button */}
+            <button
+              onClick={() => setOpenPopup(false)}
+              className="absolute cursor-pointer -top-2 right-2 text-3xl font-bold text-gray-500 hover:text-red-600 z-10"
+            >
+              ×
+            </button>
+
+            {/* Left Section */}
+            <div className="w-full md:w-1/2 p-6 bg-gradient-to-br from-black via-gray-900 to-gray-700 text-white flex flex-col justify-between">
+              <img
+                src="/build.jpeg"
+                alt="Popup"
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <div className="flex flex-col gap-3">
+                <h1 className="text-2xl font-semibold">Let's Connect!</h1>
+                <p className="text-sm text-gray-300">
+                  Have questions or inquiries about our services? Just drop your
+                  details, and we’ll get back to you as soon as possible.
+                </p>
+                <button className="mt-3 px-6 py-2 border border-white hover:bg-white hover:text-black transition-all font-semibold rounded">
+                  Call Now
+                </button>
+              </div>
+            </div>
+
+            {/* Right Section - Form */}
+            <form
+              className="w-full md:w-1/2 p-6 flex flex-col gap-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                // handleSubmit();
+              }}
+            >
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-black"
+                required
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-black"
+                required
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-black"
+                required
+              />
+              <textarea
+                placeholder="Your Message"
+                rows={4}
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-black"
+                required
+              />
+              <motion.input
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                value="Submit"
+                className="bg-black text-white cursor-pointer py-2 rounded hover:bg-gray-800 transition-all"
+              />
+            </form>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

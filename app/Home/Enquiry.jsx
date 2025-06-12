@@ -1,18 +1,29 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { FaUser, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { motion, useInView } from "framer-motion";
 
 function Enquiry() {
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const isLeftInView = useInView(leftRef, { once: true, margin: "-100px" });
+  const isRightInView = useInView(rightRef, { once: true, margin: "-100px" });
+
   return (
     <section className="w-full min-h-screen flex flex-col md:flex-row bg-[#fefefe] px-6 py-10 md:py-16 items-center justify-center gap-10">
       {/* Left Section */}
-      <div className="flex flex-col gap-6 md:w-1/2">
+      <motion.div
+        ref={leftRef}
+        initial={{ opacity: 0, x: -80 }}
+        animate={isLeftInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex flex-col gap-6 md:w-1/2"
+      >
         <div className="space-y-4">
           <h1 className="text-3xl md:text-4xl font-bold text-black leading-tight">
             Sikka Smart Residency – <br className="hidden md:block" />
             <span className="text-yellow-500">Home to 200+ Happy Families</span>
           </h1>
-
           <p className="text-gray-600 text-base md:text-lg">
             Discover a lifestyle where luxury meets community. Nestled in the
             heart of Delhi-NCR, Sikka Smart Residency stands as a testament to
@@ -26,12 +37,18 @@ function Enquiry() {
             alt="Happy Family"
           />
         </div>
-      </div>
+      </motion.div>
+
       {/* Right Section - Form */}
-      <div className="bg-white shadow-xl rounded-xl p-8 w-full md:w-[450px] space-y-6">
+      <motion.div
+        ref={rightRef}
+        initial={{ opacity: 0, x: 80 }}
+        animate={isRightInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="bg-white shadow-xl rounded-xl p-8 w-full md:w-[450px] space-y-6"
+      >
         <div>
           <h2 className="text-2xl font-bold text-black mb-2">Let’s Connect</h2>
-
           <p className="text-gray-500 text-sm">
             Have questions or want to schedule a visit? Drop your details and
             we'll get back to you shortly.
@@ -77,7 +94,7 @@ function Enquiry() {
             Send Enquiry
           </button>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,32 +1,37 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 function AboutCCard({ data }) {
   const { img, title, para } = data;
   const [animate, setAnimate] = useState(false);
 
   return (
-    <div
+    <motion.div
       className="relative"
-      onClick={() => setAnimate(true)}
       onMouseEnter={() => setAnimate(true)}
-      onMouseLeave={()=>setAnimate(false)}
+      onMouseLeave={() => setAnimate(false)}
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 200 }}
     >
       <div className="w-[300px] h-[400px]">
-        <img className="w-[100%] rounded-xl cursor-pointer h-[100%] object-cover" src={img} alt={title} />
+        <img
+          className="w-full h-full object-cover rounded-xl cursor-pointer"
+          src={img}
+          alt={title}
+        />
       </div>
-      {/* <div
-        className="w-full bg-black"
-        style={
-          animate
-            ? { position: "absolute", bottom: 0, left: 0 }
-            : { position: "absolute", bottom: -100, left: 0 }
-        }
+
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={animate ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
+        transition={{ duration: 0.4 }}
+        className="absolute bottom-0 left-0 w-full p-4 bg-black bg-opacity-80 rounded-b-xl"
       >
         <h1 className="text-white text-xl font-bold">{title}</h1>
-        <p className="text-gray-500 text-sm ">{para}</p>
-      </div> */}
-    </div>
+        <p className="text-gray-400 text-sm">{para}</p>
+      </motion.div>
+    </motion.div>
   );
 }
 

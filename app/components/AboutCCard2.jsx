@@ -1,58 +1,40 @@
 "use client";
 import React, { useState } from "react";
-
+import {motion} from "framer-motion"
 function AboutCCard2({ data }) {
   const { img, title, para } = data;
-  const [animate, setAnimate] = useState(false);
-  const [animate2, setAnimate2] = useState(false);
+  const [animate, setAnimate] = useState(false)
 
   return (
-    <div className="h-[400px] cursor-pointer relative flex flex-col items-center gap-5">
-      {/* Div 1 */}
-      <div
-        className="w-[300px]  h-[48%]"
-        onClick={() => setAnimate(true)}
-        onMouseEnter={() => setAnimate(true)}
-        onMouseLeave={() => setAnimate(false)}
-      >
-        <div className="w-[100%] h-[100%]">
-          <img className="w-[100%] h-[100%] rounded-xl object-cover" src={img} alt={title} />
-        </div>
-        {/* <div
-          className="w-full bg-black"
-          style={
-            animate
-              ? { position: "absolute", bottom: 0, left: 0 }
-              : { position: "absolute", bottom: -100, left: 0 }
-          }
+    <div
+      onMouseEnter={() => setAnimate(true)}
+      onMouseLeave={() => setAnimate(false)}
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className="h-[400px] cursor-pointer relative flex flex-col items-center gap-5"
+    >
+      {[1, 2].map((item) => (
+        <div
+          key={item}
+          className="group w-[300px] h-[48%] relative overflow-hidden rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
         >
-          <h1 className="text-white text-xl">{title}</h1>
-          <p className="text-white text-sm">{para}</p>
-        </div> */}
-      </div>
-
-      {/* Div 2 */}
-      <div
-        className="w-[300px]  h-[48%]"
-        onClick={() => setAnimate2(true)}
-        onMouseEnter={() => setAnimate2(true)}
-        onMouseLeave={() => setAnimate2(false)}
-      >
-        <div className="w-[100%] h-[100%]">
-          <img className="w-[100%] h-[100%] rounded-xl object-cover" src={img} alt={title} />
+          <img
+            className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-110"
+            src={img}
+            alt={title}
+          />
+          {/* Overlay */}
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={animate ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex flex-col justify-end p-4"
+          >
+            <h1 className="text-white text-xl font-semibold mb-1">{title}</h1>
+            <p className="text-white text-sm">{para}</p>
+          </motion.div>
         </div>
-        {/* <div
-          className="w-full bg-black"
-          style={
-            animate2
-              ? { position: "absolute", bottom: 0, left: 0 }
-              : { position: "absolute", bottom: -100, left: 0 }
-          }
-        >
-          <h1 className="text-white text-xl">{title}</h1>
-          <p className="text-white text-sm">{para}</p>
-        </div> */}
-      </div>
+      ))}
     </div>
   );
 }
